@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import configureStore, { history } from "./store/configureStore";
+import './style/index.scss';
+import AppContainer from './component/containers/AppContainer';
 import * as serviceWorker from './serviceWorker';
 
+export const { store } = configureStore();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AppContainer store={store} history={history} />,
   document.getElementById('root')
 );
 
