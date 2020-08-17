@@ -20,6 +20,7 @@ class AppContainer extends React.Component<any, AppContainerState> {
 
 	render() {
 		const { store, history } = this.props;
+
 		return <div className="container-fluid">
 			<Provider store={store}>
 				<ConnectedRouter history={history}>
@@ -34,9 +35,9 @@ class AppContainer extends React.Component<any, AppContainerState> {
 							{/*<Route exact path={ROUTE_SIGN_IN}>
 								<PublicContainer children={<SignIn />} />
 							</Route>*/}
-							{/*<Route exact path={ROUTE_SIGN_UP}>
+							<Route exact path={ROUTE_SIGN_UP}>
 								<PublicContainer children={<div>Sign UP</div>} />
-							</Route>*/}
+							</Route>
 						</Switch>
 					</BrowserRouter>
 				</ConnectedRouter>
@@ -49,10 +50,11 @@ const mapStateToProps = ({ }:any) => {
 	return {
 	}
 };
-const mapDispatchToProps = (dispatch:any) => {
+
+const mapDispatchToProps = (dispatch: any) => {
 	return {
 	}
-}
+};
 
 export default withCookies(
 	connect(mapStateToProps, mapDispatchToProps)(AppContainer)

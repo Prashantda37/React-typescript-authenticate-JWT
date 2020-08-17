@@ -3,6 +3,7 @@ import { withCookies } from "react-cookie";
 import { connect } from "react-redux";
 import SignInForm from "./component/SignInForm";
 import Modal from "../../../component/Modal";
+import { auth } from "../../../store/Modules/authenticate/actions";
 
 class SignIn extends React.Component<any, any> {
 
@@ -13,6 +14,8 @@ class SignIn extends React.Component<any, any> {
 
 	handleSubmit = (value:any) => {
 		console.log(value)
+		const { authenticate } = this.props;
+		authenticate(value);
 	}
 
 	render() {
@@ -24,4 +27,16 @@ class SignIn extends React.Component<any, any> {
 	}
 }
 
-export default withCookies(connect(null, null)(SignIn))
+const mapStateToProps = (state:any) => {
+	return {
+
+	}
+}
+
+const mapDispatchToProps = (dispatch:any) => {
+	return {
+		authenticate: (user:any) => dispatch(auth(user))
+	}
+}
+
+export default withCookies(connect(mapStateToProps, mapDispatchToProps)(SignIn))

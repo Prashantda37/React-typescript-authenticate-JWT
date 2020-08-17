@@ -12,7 +12,7 @@ const RouteModal: React.FC<any> = ({
 	const history = useHistory();
 	return <Modal
 		show={true}
-		size="lg"
+	//	size="lg"
 		onHide={() => {
 			history.go(-1);
 		}}
